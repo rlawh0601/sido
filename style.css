@@ -1,0 +1,111 @@
+/* 모든 요소의 크기 계산 방식을 통일 */
+* { box-sizing: border-box; }
+
+/* 색상 변수 정의 */
+:root {
+  --good: #2f7de1;      /* 좋음: 파랑 */
+  --normal: #2e9e5b;    /* 보통: 초록 */
+  --bad: #f08c1a;       /* 나쁨: 주황 */
+  --verybad: #d93a3a;   /* 매우나쁨: 빨강 */
+  --none: #9aa0a6;      /* 등급 없음: 회색 */
+}
+
+/* 페이지 기본 글꼴과 배경 */
+body {
+  margin: 0;
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  background: #f3f5f8;
+  color: #222;
+}
+
+/* 가운데 정렬되는 본문 폭 */
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* 상단 드롭다운 줄 */
+.top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 드롭다운 글자 */
+.top label { font-weight: bold; }
+
+/* 드롭다운 모양 */
+.top select {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccd1d9;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* 평균 요약 박스 */
+.summary {
+  margin: 16px 0;
+  padding: 24px 16px;
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* 요약 제목과 단위 글자 */
+.summary-title, .summary-unit { margin: 0; color: #666; }
+
+/* 평균 수치를 큰 숫자로 */
+.summary-value {
+  margin: 4px 0;
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+/* 안내 메시지 */
+.message { text-align: center; color: #666; min-height: 1.2em; }
+
+/* 카드 목록: 화면 너비에 맞춰 자동으로 열 수 조절 */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+/* 카드 하나의 기본 모양 */
+.card {
+  padding: 16px;
+  color: #fff;
+  border-radius: 12px;
+  background: var(--none);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+/* 등급별 카드 색 */
+.card.g1 { background: var(--good); }
+.card.g2 { background: var(--normal); }
+.card.g3 { background: var(--bad); }
+.card.g4 { background: var(--verybad); }
+
+/* 측정소 이름 */
+.card h3 { margin: 0 0 8px; font-size: 1.2rem; }
+
+/* 항목 한 줄 (이름 / 값) */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+}
+
+/* 측정 시각은 작게 */
+.time { margin-top: 10px; font-size: 0.85rem; opacity: 0.9; }
+
+/* 휴대폰처럼 좁은 화면에서는 카드를 한 열로, 숫자는 조금 작게 */
+@media (max-width: 480px) {
+  .cards { grid-template-columns: 1fr; }
+  .summary-value { font-size: 3.2rem; }
+}

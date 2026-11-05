@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- 문서 형식 선언 -->
+<html lang="ko">
+<head>
+  <!-- 글자 인코딩 지정 -->
+  <meta charset="UTF-8">
+  <!-- 휴대폰 화면 너비에 맞추기 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 브라우저 탭 제목 -->
+  <title>시도별 미세먼지 현황</title>
+  <!-- 스타일 파일 연결 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 전체 화면을 감싸는 영역 -->
+  <main class="wrap">
+    <!-- 맨 위 시도 선택 영역 -->
+    <header class="top">
+      <!-- 드롭다운 설명 글자 -->
+      <label for="sido">시도 선택</label>
+      <!-- 시도 드롭다운 (옵션은 script.js에서 채움) -->
+      <select id="sido"></select>
+    </header>
+
+    <!-- 평균 미세먼지 요약 영역 -->
+    <section class="summary" aria-live="polite">
+      <!-- 요약 제목 -->
+      <p class="summary-title" id="summaryTitle">평균 미세먼지</p>
+      <!-- 평균 수치를 크게 보여주는 곳 -->
+      <p class="summary-value" id="avgValue">-</p>
+      <!-- 수치 단위 -->
+      <p class="summary-unit">㎍/㎥ (PM10)</p>
+    </section>
+
+    <!-- 불러오는 중/오류 안내 메시지 -->
+    <p class="message" id="message"></p>
+
+    <!-- 측정소 카드가 들어갈 곳 -->
+    <section class="cards" id="cards"></section>
+  </main>
+
+  <!-- 자바스크립트 파일 연결 -->
+  <script src="script.js"></script>
+</body>
+</html>
